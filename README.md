@@ -91,11 +91,11 @@ OR
 
 **NOTE:** Within "Get_raw_data.ipynb" cell 3, a txt file is past in containing my API key, this file is in .gitignore so will not automatically appear. There are two options to deal with this:
 
-A) Replace the contents of the brackets in the following code with your API key and remove the previous 2 rows of code:
+A) As mentioned earlier under "Explanation of Directory", create a txt file called "FRED_API_key.txt" and paste in your API key (recommended).
+
+B) Replace the contents of the brackets in the following code with your API key and remove the previous 2 rows of code:
 
 ```fred = Fred(api_key = fred_api_key)```
-
-B) Create a txt file called "FRED_API_key.txt" and paste in your API key. Position the file in the directory so that it matches the directory structure outlined earlier.
 
 ## Method
 
