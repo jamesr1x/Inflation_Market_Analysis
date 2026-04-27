@@ -3,12 +3,12 @@ project:
   output-dir: docs
 
 website:
-  title: "Inflation & S&P500 Analysis"
+  title: "Report"
   navbar: true
   sidebar: 
     style: "floating"
 
 format:
   html:
-    theme: cosmos
+    theme: flatly
     css: formatting.css
