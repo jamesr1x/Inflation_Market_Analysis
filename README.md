@@ -12,7 +12,7 @@ The analysis uses 300 monthly observations from 01/01/2001-12/31/2025 and collec
 
 ## Repository structure:
 ```
-Inflation_Stock_Returns_Analysis/
+Inflation_Market_Analysis/
 │
 ├── Data/
 │   ├── Cleaned_data/
