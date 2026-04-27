@@ -53,7 +53,7 @@ Inflation_Market_Analysis/
 
 ### docs/
 
-Generates my report as a website on github.
+Generates my report as a website on github (github requires this to be the folder name).
 
 ### _quarto.yml
 
@@ -78,7 +78,7 @@ An explanation for how to use these scripts is provided under [Instructions For 
 
 ### index.qmd
 
-This is the my final report in qmd format.
+This is the my final report in qmd format (github requires this name for the report to be displayed as a website)
 
 ## Library and Version requirements:
 
