@@ -92,7 +92,7 @@ To set the scene for my analysis, *Figure 1A* displays a combined time series fo
 
 ::: {layout-nrow=2}
 ![](Outputs/Figures/combined_timeseries_monthly.png){fig-alt="Combined Time Series"}
-![](Outputs/Figures/igures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
+![](Outputs/Figures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
 :::
 
 **Figure 1.** *Time‑series plots of inflation metrics against S&P500 returns and volatility. Figure A (top) Monthly data frequency. Figure B (bottom) yearly data frequency.*
