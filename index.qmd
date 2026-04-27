@@ -91,8 +91,8 @@ $$
 To set the scene for my analysis, *Figure 1A* displays a combined time series for all 5 of my variables of interest sampled monthly - with *Figure 1B* abstracting further to a yearly sample frequency. From first glance the figures portray some noticeable features: Large market volatility from mid 2008 - mid 2010 (the Global Financial Crisis) and 2020-2021 (Covid 19), there appears to be some positive correlation between S&P500 volatility and inflation volatility and inflation and inflation surprise seem to be positively correlated. 
 
 ::: {layout-nrow=2}
-![](Outputs/figures/combined_timeseries_monthly.png){fig-alt="Combined Time Series"}
-![](Outputs/Figures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
+![](Outputs/Figures/combined_timeseries_monthly.png){fig-alt="Combined Time Series"}
+![](Outputs/Figures/igures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
 :::
 
 **Figure 1.** *Time‑series plots of inflation metrics against S&P500 returns and volatility. Figure A (top) Monthly data frequency. Figure B (bottom) yearly data frequency.*
