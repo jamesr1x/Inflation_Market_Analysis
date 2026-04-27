@@ -1,1 +1,15 @@
 FRED_API_key.txt
+/.quarto/
+**/*.quarto_ipynb
+
+Report.html
+Report_files/
+
+__pycache__/
+*.pyc
+
+.vscode/
+
+.ipynb_checkpoints/
+
+.quarto-cache/

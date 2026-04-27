@@ -1,0 +1,31 @@
+body {
+  color: #2a2a2a;
+  background-color: #fefefb;
+  line-height: 1.75;
+}
+
+h1, h2, h3, #TOC, .quarto-title-meta, .quarto-title-meta-author {
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+
+table {
+  background-color: #f7f7f7;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+}
+
+.page-columns {
+  max-width: 1200px;
+}
