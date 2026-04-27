@@ -2,7 +2,7 @@
 ======================================================================
 Model:              OLS                  Adj. R-squared:     -0.003   
 Dependent Variable: SP500_monthly_return AIC:                1792.2310
-Date:               2026-04-26 17:29     BIC:                1807.0461
+Date:               2026-04-27 18:39     BIC:                1807.0461
 No. Observations:   300                  Log-Likelihood:     -892.12  
 Df Model:           3                    F-statistic:        0.6310   
 Df Residuals:       296                  Prob (F-statistic): 0.596    

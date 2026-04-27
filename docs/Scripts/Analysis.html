@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -76,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -112,12 +113,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../formatting.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Inflation &amp; S&amp;P500 Analysis</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -126,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="efb6aaaa" class="cell" data-execution_count="28">
+<div id="efb6aaaa" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -139,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="0bca6e18" class="cell" data-execution_count="29">
+<div id="0bca6e18" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"scikit-learn:"</span>, sklearn.__version__)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"numpy:"</span>, np.__version__)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -147,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 numpy: 2.4.4</code></pre>
 </div>
 </div>
-<div id="e2e045ca" class="cell" data-execution_count="30">
+<div id="e2e045ca" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Sets up my df</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"../Data/Cleaned_data/Clean.csv"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">"Date_month"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.to_datetime(df.index) <span class="co">#Sets my date index to specifically be date data type</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -324,7 +352,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="78161310" class="cell" data-execution_count="31">
+<div id="78161310" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plots a monthly time series of the S&amp;P500 return from the start of 2001 to the end of 2025</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_monthly_return)</span>
@@ -345,7 +373,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="afdc2f9f" class="cell" data-execution_count="32">
+<div id="afdc2f9f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plots a monthly time series of S&amp;P500 volatility from the start of 2001 to the end of 2025</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_volatility)</span>
@@ -365,7 +393,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="d08c785e" class="cell" data-execution_count="33">
+<div id="d08c785e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series for inflation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.YOY_inflation)</span>
@@ -386,7 +414,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="d519b47e" class="cell" data-execution_count="34">
+<div id="d519b47e" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series for inflation volatility</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_volatility)</span>
@@ -406,7 +434,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="7ec84a9f" class="cell" data-execution_count="35">
+<div id="7ec84a9f" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series of inflation surprise over time (the difference between actual inflation and expected inflation)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_surprise)</span>
@@ -427,9 +455,9 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="09360ec7" class="cell" data-execution_count="36">
+<div id="09360ec7" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series comparing all previously mentioned components of inflation over time on a monthly basis</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">6</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_monthly_return, label <span class="op">=</span> <span class="st">"S&amp;P500 Return"</span>) <span class="co">#plots S&amp;P500 return over time</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">False</span>) <span class="co">#Removes grid lines</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">""</span>) <span class="co">#Removes y axis label</span></span>
@@ -474,10 +502,10 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="38113834" class="cell" data-execution_count="37">
+<div id="38113834" class="cell" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series comparing all previously mentioned components of inflation over time on a yearly basis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_yearly <span class="op">=</span> df.resample(<span class="st">'YE'</span>).mean() <span class="co">#Decided to resample data to yearly data points since monthly values made the graph very cluttered</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>,<span class="dv">6</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> sns.lineplot(x<span class="op">=</span>df_yearly.index, y<span class="op">=</span>df_yearly.SP500_monthly_return, label <span class="op">=</span> <span class="st">"S&amp;P500 Return"</span>)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">False</span>) <span class="co">#removes grid lines</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">""</span>) <span class="co">#removes y axis label</span></span>
@@ -506,15 +534,16 @@ numpy: 2.4.4</code></pre>
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Time"</span>)</span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Inflation Features vs S&amp;P 500 Return Over Time (yearly)"</span>)</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>ax1.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.15</span>, <span class="op">-</span><span class="fl">0.15</span>)) <span class="co">#positions the legend in specific position</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>ax2.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.55</span>, <span class="op">-</span><span class="fl">0.15</span>))</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ax3.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.15</span>))</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ax4.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.95</span>, <span class="op">-</span><span class="fl">0.15</span>))</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>ax5.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.35</span>, <span class="op">-</span><span class="fl">0.15</span>))</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(df_yearly.index.<span class="bu">min</span>(), df_yearly.index.<span class="bu">max</span>())</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../Outputs/figures/combined_timeseries_yearly.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co">#positions the legends in specific position:</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>ax1.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 1st</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ax5.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.4</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 2nd</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ax2.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.542</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 3rd</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>ax3.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 4th</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>ax4.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.95</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 5th</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(df_yearly.index.<span class="bu">min</span>(), df_yearly.index.<span class="bu">max</span>())</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../Outputs/figures/combined_timeseries_yearly.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -523,7 +552,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="5413d452" class="cell" data-execution_count="38">
+<div id="5413d452" class="cell" data-execution_count="52">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Return vs Inflation</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.YOY_inflation, y<span class="op">=</span>df.SP500_monthly_return) <span class="co">#plots a scatter plot</span></span>
@@ -551,7 +580,7 @@ R Squared Value: 0.00475004909088779</code></pre>
 </div>
 </div>
 </div>
-<div id="cb9f884f" class="cell" data-execution_count="39">
+<div id="cb9f884f" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Return vs Inflation Volatility</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.Inflation_volatility, y<span class="op">=</span>df.SP500_monthly_return)</span>
@@ -578,7 +607,7 @@ R Squared Value: 3.5608455659388564e-09</code></pre>
 </div>
 </div>
 </div>
-<div id="4bb11a0c" class="cell" data-execution_count="40">
+<div id="4bb11a0c" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Return vs Inflation Surprise</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.Inflation_surprise, y<span class="op">=</span>df.SP500_monthly_return)</span>
@@ -605,7 +634,7 @@ R Squared Value: 0.007132534733618178</code></pre>
 </div>
 </div>
 </div>
-<div id="2b6ebb57" class="cell" data-execution_count="41">
+<div id="2b6ebb57" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Volatility vs Inflation</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.YOY_inflation, y<span class="op">=</span>df.SP500_volatility)</span>
@@ -632,7 +661,7 @@ R Squared Value: 0.06546540757698156</code></pre>
 </div>
 </div>
 </div>
-<div id="7b88e13c" class="cell" data-execution_count="42">
+<div id="7b88e13c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Volatility vs Inflation Volatility</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.Inflation_volatility, y<span class="op">=</span>df.SP500_volatility)</span>
@@ -659,7 +688,7 @@ R Squared Value: 0.20974384974019464</code></pre>
 </div>
 </div>
 </div>
-<div id="7ad97ede" class="cell" data-execution_count="43">
+<div id="7ad97ede" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting S&amp;P500 Volatility vs Inflation Surprise</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(x<span class="op">=</span>df.Inflation_surprise, y<span class="op">=</span>df.SP500_volatility)</span>
@@ -686,7 +715,7 @@ R Squared Value: 0.05922242277579128</code></pre>
 </div>
 </div>
 </div>
-<div id="44dc5402" class="cell" data-execution_count="44">
+<div id="44dc5402" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Regression modelling: Regressing sp500 returns on inflation metrics: sp500 returns = a + b1 Inflation + b2 Inflation Volatiltiy + b3 Inflation Surprise + u</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"YOY_inflation"</span>, <span class="st">"Inflation_volatility"</span>, <span class="st">"Inflation_surprise"</span>]]</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">"SP500_monthly_return"</span>]</span>
@@ -702,7 +731,7 @@ R Squared Value: 0.05922242277579128</code></pre>
 ======================================================================
 Model:              OLS                  Adj. R-squared:     -0.003   
 Dependent Variable: SP500_monthly_return AIC:                1792.2310
-Date:               2026-04-27 13:10     BIC:                1807.0461
+Date:               2026-04-27 18:39     BIC:                1807.0461
 No. Observations:   300                  Log-Likelihood:     -892.12  
 Df Model:           3                    F-statistic:        0.6310   
 Df Residuals:       296                  Prob (F-statistic): 0.596    
@@ -724,7 +753,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="645a18e2" class="cell" data-execution_count="45">
+<div id="645a18e2" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Regressing sp500 returns on lagged variables to see if current inflation values can predict future sp500 returns</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sp500 returns = a + b1 Lagged Inflation + b2 Lagged Inflation Volatiltiy + b3 Lagged Inflation Surprise + u</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"Inflation_lag"</span>, <span class="st">"Volatility_lag"</span>, <span class="st">"Surprise_lag"</span>]]</span>
@@ -742,7 +771,7 @@ Notes:
 ======================================================================
 Model:              OLS                  Adj. R-squared:     0.011    
 Dependent Variable: SP500_monthly_return AIC:                1788.1551
-Date:               2026-04-27 13:10     BIC:                1802.9702
+Date:               2026-04-27 18:39     BIC:                1802.9702
 No. Observations:   300                  Log-Likelihood:     -890.08  
 Df Model:           3                    F-statistic:        1.511    
 Df Residuals:       296                  Prob (F-statistic): 0.212    
@@ -764,7 +793,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="d5c72265" class="cell" data-execution_count="46">
+<div id="d5c72265" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#MLR: Regressing sp500 volatility on inflation metrics: sp500 volatility = a + b1 Inflation + b2 Inflation Volatiltiy + b3 Inflation Surprise +b4 Inflation^2 + b5 Inflation Surprise^2 + u</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Inflation_sqrd"</span>] <span class="op">=</span> df.YOY_inflation<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Surprise_sqrd"</span>] <span class="op">=</span> df.Inflation_surprise<span class="op">**</span><span class="dv">2</span></span>
@@ -784,7 +813,7 @@ Notes:
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.362    
 Dependent Variable:   SP500_volatility AIC:                1165.9034
-Date:                 2026-04-27 13:10 BIC:                1188.1261
+Date:                 2026-04-27 18:39 BIC:                1188.1261
 No. Observations:     300              Log-Likelihood:     -576.95  
 Df Model:             5                F-statistic:        43.56    
 Df Residuals:         294              Prob (F-statistic): 1.56e-33 
@@ -808,7 +837,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="7bf42a2d" class="cell" data-execution_count="47">
+<div id="7bf42a2d" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#MLR: Regressing sp500 volatility on lagged inflation metrics:</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sp500 returns = a + b1 Lagged Inflation + b2 Lagged Inflation Volatiltiy + b3 Lagged Inflation Surprise + u</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"Inflation_lag"</span>, <span class="st">"Volatility_lag"</span>, <span class="st">"Surprise_lag"</span>]]</span>
@@ -825,7 +854,7 @@ Notes:
 ==================================================================
 Model:              OLS              Adj. R-squared:     0.301    
 Dependent Variable: SP500_volatility AIC:                1191.2940
-Date:               2026-04-27 13:10 BIC:                1206.1091
+Date:               2026-04-27 18:39 BIC:                1206.1091
 No. Observations:   300              Log-Likelihood:     -591.65  
 Df Model:           3                F-statistic:        32.65    
 Df Residuals:       296              Prob (F-statistic): 2.93e-18 
@@ -847,7 +876,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="b2700af9" class="cell" data-execution_count="48">
+<div id="b2700af9" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"YOY_inflation"</span>, <span class="st">"Inflation_volatility"</span>]]</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">"SP500_volatility"</span>]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>x_std <span class="op">=</span> pd.DataFrame(StandardScaler().fit_transform(x), columns<span class="op">=</span>x.columns, index<span class="op">=</span>x.index)</span>
@@ -864,7 +893,7 @@ Notes:
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.300    
 Dependent Variable:   SP500_volatility AIC:                1190.7903
-Date:                 2026-04-27 13:10 BIC:                1201.9016
+Date:                 2026-04-27 18:39 BIC:                1201.9016
 No. Observations:     300              Log-Likelihood:     -592.40  
 Df Model:             2                F-statistic:        50.87    
 Df Residuals:         297              Prob (F-statistic): 1.00e-19 
@@ -885,7 +914,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="01d72eec" class="cell" data-execution_count="49">
+<div id="01d72eec" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#used vif to calculate multicolinearity coefficients</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"YOY_inflation"</span>, <span class="st">"Inflation_surprise"</span>]]</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sm.add_constant(x)</span>
@@ -896,7 +925,7 @@ Notes:
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>vif_df.to_csv(<span class="st">"../Outputs/Tables/VIF.csv"</span>)</span>
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>vif_df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -930,7 +959,7 @@ Notes:
 </div>
 </div>
 </div>
-<div id="79e74dac" class="cell" data-execution_count="50">
+<div id="79e74dac" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Running the regression:sp500 volatility = a + b1 Inflation + b2 Inflation Volatility + b3 (Inflation * Inflation volatility)</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Inflation_x_volatility"</span>] <span class="op">=</span> df.YOY_inflation <span class="op">*</span> df.Inflation_volatility</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[[<span class="st">"YOY_inflation"</span>, <span class="st">"Inflation_volatility"</span>, <span class="st">"Inflation_x_volatility"</span>]]</span>
@@ -949,7 +978,7 @@ Notes:
 ======================================================================
 Model:                OLS               Adj. R-squared:      0.330    
 Dependent Variable:   SP500_volatility  AIC:                 1178.6915
-Date:                 2026-04-27 13:10  BIC:                 1193.5067
+Date:                 2026-04-27 18:39  BIC:                 1193.5067
 No. Observations:     300               Log-Likelihood:      -585.35  
 Df Model:             3                 F-statistic:         84.91    
 Df Residuals:         296               Prob (F-statistic):  1.16e-39 
@@ -971,7 +1000,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<div id="490bfb8d" class="cell" data-execution_count="51">
+<div id="490bfb8d" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#MLR: Regressing sp500 volatility on inflation metrics and previous period volatility: </span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sp500 volatility = a + b1 Sp500 volatility lag + b2 Inflation + b3 Inflation Volatiltiy + b4 Inflation Surprise + u</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#This regression accounts for volatility persistence.</span></span>
@@ -991,7 +1020,7 @@ Notes:
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.938    
 Dependent Variable:   SP500_volatility AIC:                467.7166 
-Date:                 2026-04-27 13:10 BIC:                486.2355 
+Date:                 2026-04-27 18:39 BIC:                486.2355 
 No. Observations:     300              Log-Likelihood:     -228.86  
 Df Model:             4                F-statistic:        911.2    
 Df Residuals:         295              Prob (F-statistic): 1.28e-164

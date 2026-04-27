@@ -1,12 +1,13 @@
 ---
 title: "How Do Inflation Metrics Influence S&P500 Returns and Volatility?"
-title-block-banner: "#002173"
+title-block-banner: "#145a9b"
 title-block-style: default
 author: "James Rix"
+date: "27-04-2026"
+affiliations: "University of Exeter"
 format: html
 css: formatting.css
 toc: true
-number-sections: true
 ---
 
 # Introduction
@@ -113,7 +114,7 @@ On visual inspection of *Figure 2* there seems to be extremely little correlatio
 ![](Outputs/Figures/sp500_r_inflation_s.png){fig-alt="S&P500 Volatility Against Inflation Surprise"}
 :::
 
-**Figure 2.** *Inflation metrics: Inflation(A), inflation Volatility(B) and inflation surprise(C) against S&P500 returns.*
+**Figure 2.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 returns*.
 
 Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation P values are revealed to be extremely small hinting at a statistically significant relationship, however, r squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
 
@@ -126,7 +127,7 @@ Looking into *Figure 3*, there is visual evidents of correlation between inflati
 ![](Outputs/Figures/sp500_v_inflation_s.png){fig-alt="S&P500 Returns Against Inflation Surprise"}
 :::
 
-**Figure 3.** *Inflation metrics: Inflation(A), inflation Volatility(B) and inflation surprise(C) against S&P500 volatility.*
+**Figure 3.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 volatility*.
 
 Somethings to note from inspecting the graphs: There seems to be heteroskedasticity so I should use robust standard errors later in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically this makes sense given the FED's inflation target of 2% and inflation surprise being mostly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&P500 volatility and inflation surprise vs S&P500 volatility look as if they may follow a nonlinear relationship, so this should be tested. 
 

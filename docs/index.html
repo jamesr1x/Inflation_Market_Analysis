@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Rix">
+<meta name="dcterms.date" content="2028-03-04">
 
 <title>How Do Inflation Metrics Influence S&amp;P500 Returns and Volatility? – Inflation &amp; S&amp;P500 Analysis</title>
 <style>
@@ -28,6 +29,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -42,13 +44,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -73,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
 <style>
 
       .quarto-title-block .quarto-title-banner {
-        background: #002173;
+        background: #145a9b;
       }
 </style>
 
@@ -110,9 +112,33 @@ window.Quarto = {
 <link rel="stylesheet" href="formatting.css">
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Inflation &amp; S&amp;P500 Analysis</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">How Do Inflation Metrics Influence S&amp;P500 Returns and Volatility?</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
@@ -121,42 +147,55 @@ window.Quarto = {
                       </div>
   </div>
     
-  
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">James Rix </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+        </div>
+    </div>
+
   <div class="quarto-title-meta">
 
+        
       <div>
-      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-               <p>James Rix </p>
-            </div>
+        <p class="date">March 4, 2028</p>
+      </div>
     </div>
-      
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data:</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data:</a>
   <ul class="collapse">
-  <li><a href="#collection" id="toc-collection" class="nav-link" data-scroll-target="#collection"><span class="header-section-number">2.1</span> collection</a></li>
-  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations"><span class="header-section-number">2.2</span> Calculations</a></li>
+  <li><a href="#collection" id="toc-collection" class="nav-link" data-scroll-target="#collection">collection</a></li>
+  <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a></li>
   </ul></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">3</span> Analysis</a>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
   <ul class="collapse">
-  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series"><span class="header-section-number">3.1</span> Time series</a></li>
-  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"><span class="header-section-number">3.2</span> Scatter Plots</a></li>
-  <li><a href="#regressions" id="toc-regressions" class="nav-link" data-scroll-target="#regressions"><span class="header-section-number">3.3</span> Regressions</a></li>
+  <li><a href="#time-series" id="toc-time-series" class="nav-link" data-scroll-target="#time-series">Time series</a></li>
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots">Scatter Plots</a></li>
+  <li><a href="#regressions" id="toc-regressions" class="nav-link" data-scroll-target="#regressions">Regressions</a></li>
   </ul></li>
-  <li><a href="#conclusion-and-findings" id="toc-conclusion-and-findings" class="nav-link" data-scroll-target="#conclusion-and-findings"><span class="header-section-number">4</span> Conclusion and Findings</a></li>
+  <li><a href="#conclusion-and-findings" id="toc-conclusion-and-findings" class="nav-link" data-scroll-target="#conclusion-and-findings">Conclusion and Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -167,8 +206,8 @@ window.Quarto = {
 
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>The stock market plays an essential role in the global economy, aggregating vast amounts of economic data and combining with consumer sentiment to value over 58000 publicly listed companies. The S&amp;P 500 is often considered the best gauge for large cap American stocks, making up around 80% of the US’s market cap. Due to its prevalence it is closely monitored by policy makers to evaluate economic health and is used by institutions and individual investors as a bench mark for performance.</p>
 <p>Among macroeconomic indicators such as GDP growth and unemployment rate, inflation plays a significant role in influencing interest rates, firm profitability and investor expectations. Although inflation is known to have a key role in the valuation of equities in the market, the individual elements of inflation and their exact influence on the market remains largely ambiguous.</p>
 <p>This report therefore aims to reveal how three inflation metrics correlate to two core performance measures of the S&amp;P500 by answering the following research question:</p>
@@ -187,16 +226,16 @@ window.Quarto = {
 <li><strong>S&amp;P500 volatility</strong> (rolling 12-month standard deviation of returns).</li>
 </ul>
 </section>
-<section id="data" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Data:</h1>
-<section id="collection" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="collection"><span class="header-section-number">2.1</span> collection</h2>
+<section id="data" class="level1">
+<h1>Data:</h1>
+<section id="collection" class="level2">
+<h2 class="anchored" data-anchor-id="collection">collection</h2>
 <p>Inflation data is easily obtainable from the FRED using the “fredapi” library in python and a private API key collected by creating an account with the FRED. This report utilises two datasets from the FRED: 1) CPIAUCSL, which contains monthly data on cpi for all urban consumers in the USA (seasonally adjusted) and 2) MICH, which contains monthly data on University of Michigan consumer inflation expectations.</p>
 <p>S&amp;P500 data can be retrieved from yahoo finance using the yfinance python library using the S&amp;P500 ticker “^GSPC”. Unlike the FRED S&amp;P500 data is recorded daily excluding weekends and bank holidays, thus data had to be resampled to monthly by extracting the first record from each month. Redundant columns were removed so the data frame contained only the date and the corresponding S&amp;P500 closing value. Missing values were filled using the pandas function “interpolate()”.</p>
 <p>In this report a 25 year window will be used, taking data from 2001/01/01 - 2025/12/31, resulting in 300 records.</p>
 </section>
-<section id="calculations" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="calculations"><span class="header-section-number">2.2</span> Calculations</h2>
+<section id="calculations" class="level2">
+<h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
 <p>The following variables were constructed for the analysis:</p>
 <p><strong>S&amp;P500 Monthly Returns(%):</strong> <span class="math display">\[
 \color{gray}{
@@ -225,10 +264,10 @@ S_t = Inflation - Inflation Expectations
 \]</span></p>
 </section>
 </section>
-<section id="analysis" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Analysis</h1>
-<section id="time-series" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="time-series"><span class="header-section-number">3.1</span> Time series</h2>
+<section id="analysis" class="level1">
+<h1>Analysis</h1>
+<section id="time-series" class="level2">
+<h2 class="anchored" data-anchor-id="time-series">Time series</h2>
 <p>To set the scene for my analysis, <em>Figure 1A</em> displays a combined time series for all 5 of my variables of interest sampled monthly, with <em>Figure 1B</em> abstracting further to a yearly sample frequency. From first glance the figures portray some noticeable features: Large market volatility from mid 2008 - mid 2010 (the Global Financial Crisis) and 2020-2021 (Covid 19), there appears to be some positive correlation between S&amp;P500 volatility and inflation volatility and inflation and inflation surprise seem to be positively correlated.</p>
 <div class="quarto-layout-panel" data-layout-nrow="2">
 <div class="quarto-layout-row">
@@ -240,8 +279,8 @@ S_t = Inflation - Inflation Expectations
 <p><strong>Figure 1.</strong> <em>Time‑series plots of inflation metrics against S&amp;P500 returns and volatility. Figure A (top) Monthly data frequency. Figure B (bottom) yearly data frequency.</em></p>
 <p>While the time series plots provide an initial overview of how inflation metrics and the s&amp;P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.</p>
 </section>
-<section id="scatter-plots" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">3.2</span> Scatter Plots</h2>
+<section id="scatter-plots" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plots">Scatter Plots</h2>
 <p>To begin investigating relationship between inflation metrics and S&amp;P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.</p>
 <p>On visual inspection of <em>Figure 2</em> there seems to be extremely little correlation between each of the inflation metrics plotted against S&amp;P500 returns. Calculated r squared values are extremely small hinting that the relationship between inflation metrics and S&amp;P500 returns is extremely week and running a simple linear regression yields extremely high P values, meaning any observable correlation is statistically insignificant.</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
@@ -257,7 +296,7 @@ S_t = Inflation - Inflation Expectations
 </div>
 </div>
 </div>
-<p><strong>Figure 2.</strong> <em>Inflation metrics: Inflation(A), inflation Volatility(B) and inflation surprise(C) against S&amp;P500 returns.</em></p>
+<p><strong>Figure 2.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 returns</em></p>
 <p>Looking into <em>Figure 3</em>, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation P values are revealed to be extremely small hinting at a statistically significant relationship, however, r squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&amp;P500 volatility – meaning 21% of the variation in S&amp;P500 volatility can be explained by inflation volatility.</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
@@ -272,11 +311,11 @@ S_t = Inflation - Inflation Expectations
 </div>
 </div>
 </div>
-<p><strong>Figure 3.</strong> <em>Inflation metrics: Inflation(A), inflation Volatility(B) and inflation surprise(C) against S&amp;P500 volatility.</em></p>
+<p><strong>Figure 3.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 volatility</em></p>
 <p>Somethings to note from inspecting the graphs: There seems to be heteroskedasticity so I should use robust standard errors later in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically this makes sense given the FED’s inflation target of 2% and inflation surprise being mostly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&amp;P500 volatility and inflation surprise vs S&amp;P500 volatility look as if they may follow a nonlinear relationship, so this should be tested.</p>
 </section>
-<section id="regressions" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="regressions"><span class="header-section-number">3.3</span> Regressions</h2>
+<section id="regressions" class="level2">
+<h2 class="anchored" data-anchor-id="regressions">Regressions</h2>
 <p>Having visualised the relationships between inflation metrics and S&amp;P500 returns and volatility, I now extend my analysis by modelling more complex regressions. Note throughout this analysis robust standard errors (HC1) are used in regressions to combat heterogeneity and coefficients are standardised to allow meaningful comparison between regressors.</p>
 <p>To start , S&amp;P500 returns were regressed on the three inflation metrics:</p>
 <p><span class="math display">\[
@@ -293,13 +332,13 @@ R_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} 
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_t + \beta_2 \sigma^{\pi}_t + \beta_3 S_t + \beta_4 \pi_t^2 + \beta_5 S_t^2 + u_t
 \]</span></p>
 <p>As seen in <em>Figure 4</em>, this model explains 36.2% of the variation in monthly S&amp;P500 volatility, a significantly stronger result than the models relating inflation metrics to S&amp;P500 returns. All variables were statistically significant except the squared inflation surprise term. The model suggests that inflation volatility and inflation surprise both have a statistically significant positive correlation with S&amp;P500 volatility, where a 1 standard deviation (SD) increase in either metric is associated with a 0.79 SD increase in S&amp;P500 volatility. Conversely inflation has a statistically significant negative relationship with S&amp;P500 volatility, where a 1 SD increase in inflation is associated with a 1.50 SD decrease in S&amp;P500 volatility.</p>
-<div id="35cf306e" class="cell" data-execution_count="1">
+<div id="978f710d" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.362    
 Dependent Variable:   SP500_volatility AIC:                1165.9034
-Date:                 2026-04-26 17:29 BIC:                1188.1261
+Date:                 2026-04-27 18:39 BIC:                1188.1261
 No. Observations:     300              Log-Likelihood:     -576.95  
 Df Model:             5                F-statistic:        43.56    
 Df Residuals:         294              Prob (F-statistic): 1.56e-33 
@@ -329,13 +368,13 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} + u_t
 \]</span></p>
 <p>Replacing lagged inflation variables in the model yeilds substantially different results, as shown in <em>Figure 5</em>. Inflation surprise is no longer statistically significant, the magnitude of the effect of inflation is reduced to -0.79 SD and the effect of inflation volatility increases to 1.00 SD.</p>
-<div id="b7edfeae" class="cell" data-execution_count="2">
+<div id="3fe629c3" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.938    
 Dependent Variable:   SP500_volatility AIC:                467.7166 
-Date:                 2026-04-26 17:29 BIC:                486.2355 
+Date:                 2026-04-27 18:39 BIC:                486.2355 
 No. Observations:     300              Log-Likelihood:     -228.86  
 Df Model:             4                F-statistic:        911.2    
 Df Residuals:         295              Prob (F-statistic): 1.28e-164
@@ -371,13 +410,13 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi^{std}_t + \beta_2 (\sigma^{\pi}_t)^{std} + \beta_3\left( \pi^{std}_t \cdot (\sigma^{\pi}_t)^{std} \right)+ u_t
 \]</span></p>
 <p>Similar to the previous models, as seen in figure 6 this model shows a strong and statistically significant positive relationship between inflation volatility and S&amp;P500 volatility. The interaction term between inflation and inflation volatility is negative and also statistically significant. However, importantly inflation is now statistically insignificant with a p-value of 0.58.</p>
-<div id="aea3be66" class="cell" data-execution_count="3">
+<div id="fc380b67" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Results: Ordinary least squares
 ======================================================================
 Model:                OLS               Adj. R-squared:      0.330    
 Dependent Variable:   SP500_volatility  AIC:                 1178.6915
-Date:                 2026-04-26 17:29  BIC:                 1193.5067
+Date:                 2026-04-27 18:39  BIC:                 1193.5067
 No. Observations:     300               Log-Likelihood:      -585.35  
 Df Model:             3                 F-statistic:         84.91    
 Df Residuals:         296               Prob (F-statistic):  1.16e-39 
@@ -407,13 +446,13 @@ Notes:
 \]</span></p>
 <p>The inclusion of past S&amp;P500 volatility in my model produces an interesting result. As seen in figure 7, the model yields a very high R-squared (0.938), yet the relationship of inflation, inflation volatility and inflation surprise to S&amp;P500 volatility all become statistically insignificant (p-values: 0.433, 0.128, 0.408 respectively).</p>
 <p>This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.</p>
-<div id="df73acb4" class="cell" data-execution_count="4">
+<div id="1cd5251d" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.938    
 Dependent Variable:   SP500_volatility AIC:                467.7166 
-Date:                 2026-04-26 17:29 BIC:                486.2355 
+Date:                 2026-04-27 18:39 BIC:                486.2355 
 No. Observations:     300              Log-Likelihood:     -228.86  
 Df Model:             4                F-statistic:        911.2    
 Df Residuals:         295              Prob (F-statistic): 1.28e-164
@@ -439,8 +478,8 @@ Notes:
 <p><strong>Figure 7.</strong> <em>Regression results from regressing S&amp;P500 volatility on previous period S&amp;P500 volatility and inflation metrics.</em></p>
 </section>
 </section>
-<section id="conclusion-and-findings" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Conclusion and Findings</h1>
+<section id="conclusion-and-findings" class="level1">
+<h1>Conclusion and Findings</h1>
 <p>The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise, and how they influence two metrics of stock market behaviour: S&amp;P500 monthly returns and S&amp;P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding.</p>
 <p>The first part of the analysis focused on the relationship between S&amp;P500 returns and inflation metrics in contemporaneous and lagged regression models. The results were statistically insignificant, suggesting that the inflation dynamics mentioned do not have any meaningful impact on current stock market returns, nor do they have any predictive power for future returns.</p>
 <p>In contrast, the relationship between the inflation metrics and S&amp;P500 volatility is considerably stronger. Initial inspection of the scatter plots suggested positive correlations between S&amp;P500 volatility and inflation volatility and inflation surprise and negative correlations S&amp;P500 volatility and inflation. Subsequent regressions confirm these statistically significant relationships. Additionally, inflation surprise has a nonlinear effect on S&amp;P500 volatility, where large surprises disproportionately increase volatility. These results are consistent with economic intuition as uncertainty in inflation, either caused by volatility or surprises, increases uncertainty in the market due to difficulties predicting monetary policy and real interest rates.</p>
