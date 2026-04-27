@@ -22,6 +22,8 @@ Inflation_Stock_Returns_Analysis/
 │   ├── Make_API_key.py
 │   └── Make_no_API_key.py
 │
+├── docs/
+│
 ├── Outputs/
 │   ├── Figures/
 │   └── Tables/
@@ -31,23 +33,35 @@ Inflation_Stock_Returns_Analysis/
 │   ├── Clean.ipynb
 │   └── Analysis.ipynb
 │
+├── _quarto.yml
 ├── Formatting.css
 ├── FRED_API_key.txt # in .gitignore
+├── index.qmd
 ├── LICENSE
-├── README.md
-├── Report.html
-└── Report.qmd
+└── README.md
 ```
 
 ## Explanation of Directory:
 
-### Scripts/:
+### Scripts/
 
 **The project contains 3 scripts:**
 
 - "Get_raw_data.ipynb" collects raw data from the FED and Yfinance and converts this raw data into 3 csvs which are stored in "Data/Raw_data/".
 - "Clean.ipynb" carries out data processing on the raw data csvs, combinding them into a single csv file called Clean.csv which is stored in "Data/Raw_data/".
 - "Analysis.ipynb" carries out analysis on the cleaned data (Clean.csv). It produces graphs which are stored in "Outputs/Figures/" and regression tables which are stored in "Outputs/Tables/".
+
+### docs/
+
+Generates my report as a website on github.
+
+### _quarto.yml
+
+Defines how the report is rendered and where the output is stored (in [docs/](#docs).
+
+### formatting.css
+
+Ensures consistent styling and formatting throughout the report.
 
 ### FRED_API_key.txt
 
@@ -60,11 +74,11 @@ This text file is ignored by git. It contains my API key required to fetch data 
 - "Make_API_key.py"
 - "Make_no_API_key.py"
 
-An explanation for how to use these scripts is provided under [Instructions For Setup](#instructions-for-setup)
+An explanation for how to use these scripts is provided under [Instructions For Setup](#instructions-for-setup).
 
-### Report.html
+### index.qmd
 
-This is the final rendered report.
+This is the my final report in qmd format.
 
 ## Library and Version requirements:
 
@@ -83,13 +97,13 @@ Before running the scripts please install the following libraries:
 - Yfinance: 1.2.0
 - Fredapi: N/A
 
-**NOTE:** If libraries are not functioning as expected please check versions match.
+**PLEASE NOTE:** If libraries are not functioning as expected please check versions match.
 
 ## Instructions For Setup
 
 ### 1) Clone the repository:
 
-- Create a folder on your device you wish to contain the repository
+- Create a folder on your device you wish to contain the repository.
 - Open Git Bash and type the following commands:
 ```
 CD "FOLDER_PATH" #where FOLDER_PATH is the path to your folder
@@ -104,47 +118,49 @@ pip install papermill
 
 ### 3) Run either of the following 2 make scripts:
 
-**Make_no_API_key**: 
-- Runs only "Clean.ipynb" and "Analysis.ipynb" script - If pulling raw data is not required this is easier, it does not require the user to create an API key.
+**A) Make_no_API_key**: 
+- Runs only the "Clean.ipynb" and "Analysis.ipynb" scripts - If pulling raw data is not required this is easier, it does not require the user to create an API key.
 
-**Make_API_key**: 
+**OR**
+
+**B) Make_API_key**: 
 - Runs all 3 scripts, including gathering and cleaning raw data.
 - **NOTE:** Within "Get_raw_data.ipynb" cell 3, a txt file is past in containing my API key, this file is in .gitignore so will NOT automatically download when you clone the repository. As mentioned earlier under [Explanation of Directory](#explanation-of-directory), create a txt file called "FRED_API_key.txt" and paste in your API key.
 
 ### 4) View Report
-- Veiw report.qmd (any updates to graphs and regression models will automatically be included).
+- View report.qmd (any updates to graphs and regression models will automatically be included).
 
 ## Method
 
 ### 1. Data collection
-- CPI and inflation expectations pulled via `fredapi`
-- S&P500 data retrieved using `yfinance`
+- CPI and inflation expectations pulled via `fredapi`.
+- S&P500 data retrieved using `yfinance`.
 
 ### 2. Data cleaning
-- S&P500 data resampled to monthly, missing values filled, merged all 3 data sets
-- Calculation of S&P500 returns, S&P500 volatility and inflation metrics
+- S&P500 data resampled to monthly, missing values filled, merged all 3 data sets.
+- Calculation of S&P500 returns, S&P500 volatility and inflation metrics.
 
 ### 3. Analysis
 
 **Graph Production:**
-- Time‑series plots  
-- Scatter plots with fitted lines  
+- Time‑series plots.  
+- Scatter plots with fitted lines.  
 
 **Regression Modelling:**
-- S&P500 returns on inflation metrics  
-- Lagged inflation metrics  
-- S&P500 volatility on inflation metrics  
-- Nonlinear models (squared terms)  
-- Interaction model: inflation × inflation volatility  
-- Volatility‑persistence model including lagged S&P500 volatility
--  **Note:** All regressions use **standardised coefficients** and **HC1 robust standard errors**.
+- S&P500 returns on inflation metrics.  
+- S&P500 returns on lagged inflation metrics.  
+- S&P500 volatility on inflation metrics (inc. non linear terms)
+- S&P500 volatility on lagged inflation metrics.  
+- Interaction model containing the interaction term: inflation × inflation volatility.  
+- Volatility‑persistence model including lagged S&P500 volatility.
+- **Note:** All regressions use **standardised coefficients** and **HC1 robust standard errors**.
 
 ## Summary
 
 - Inflation metrics do not influence S&P500 returns or predict future returns.
-- Initial Inflation volatility and inflation surprise correlate with S&P500 volatility.
+- Initial inflation volatility and inflation surprise correlate with S&P500 volatility.
 - Once lagged S&P500 volatility is included in the model, all inflation metrics become insignificant.
-- Past volatility is the strongest predictor of current volatility.
+- Past market volatility is the strongest predictor of current market volatility.
 - To conclude inflation related uncertainty may trigger short‑term volatility spikes, but it is not a structural driver of ongoing market volatility.
 
 
