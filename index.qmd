@@ -2,15 +2,17 @@
 title: "How Do Inflation Metrics Influence S&P500 Returns and Volatility?"
 title-block-banner: "#145a9b"
 title-block-style: default
-author: "James Rix"
-date: "27-04-2026"
-affiliations: "University of Exeter"
+date: "2026-04-27"
+author:
+  - name: "James Rix"
+    affiliations:
+      - name: "University of Exeter- Department of Economics"
 format: html
 css: formatting.css
 toc: true
 ---
 
-# Introduction
+## Introduction
 
 The stock market plays an essential role in the global economy, aggregating vast amounts of economic data and combining with consumer sentiment to value over 58000 publicly listed companies. The S&P 500 is often considered the best gauge for large cap American stocks, making up around 80% of the US's market cap. Due to its prevalence it is closely monitored by policy makers to evaluate economic health and is used by institutions and individual investors as a bench mark for performance. 
 
@@ -31,9 +33,9 @@ This report therefore aims to reveal how three inflation metrics correlate to tw
 - **S&P500 monthly returns** 
 - **S&P500 volatility** (rolling  12-month standard deviation of returns). 
 
-# Data: 
+## Data: 
 
-## collection 
+### collection 
 
 Inflation data is easily obtainable from the FRED using the "fredapi" library in python and a private API key collected by creating an account with the FRED. This report utilises two datasets from the FRED: 1) CPIAUCSL, which contains monthly data on cpi for all urban consumers in the USA (seasonally adjusted) and 2) MICH, which contains monthly data on University of Michigan consumer inflation expectations.  
 
@@ -41,7 +43,7 @@ S&P500 data can be retrieved from yahoo finance using the yfinance python librar
 
 In this report a 25 year window will be used, taking data from 2001/01/01 - 2025/12/31, resulting in 300 records. 
 
-## Calculations 
+### Calculations 
 
 The following variables were constructed for the analysis:
 
@@ -58,7 +60,7 @@ $$
 \sigma_t = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (R_{t-i} - \bar{R}_t)^2}, \quad n = 12
 }
 $$
-> Note: This can be calculated using pandas functions: 
+> Note: This can be calculated using the pandas functions: 
 `R.rolling(12).std()`
 
 
@@ -75,7 +77,7 @@ $$
 \sigma_t = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (R_{t-i} - \bar{R}_t)^2}, \quad n = 12
 }
 $$
-> Note: This can be calculated using pandas functions: 
+> Note: This can be calculated using the pandas functions: 
 `π.rolling(12).std()`
 
 **Inflation surprise(PP):** 
@@ -85,9 +87,9 @@ S_t = Inflation - Inflation Expectations
 }
 $$
 
-# Analysis
+## Analysis
 
-## Time series
+### Time series
 
 To set the scene for my analysis, *Figure 1A* displays a combined time series for all 5 of my variables of interest sampled monthly, with *Figure 1B* abstracting further to a yearly sample frequency. From first glance the figures portray some noticeable features: Large market volatility from mid 2008 - mid 2010 (the Global Financial Crisis) and 2020-2021 (Covid 19), there appears to be some positive correlation between S&P500 volatility and inflation volatility and inflation and inflation surprise seem to be positively correlated. 
 
@@ -100,7 +102,7 @@ To set the scene for my analysis, *Figure 1A* displays a combined time series fo
 
 While the time series plots provide an initial overview of how inflation metrics and the s&P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.  
 
-## Scatter Plots
+### Scatter Plots
 
 To begin investigating relationship between inflation metrics and S&P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.  
 
@@ -131,7 +133,7 @@ Looking into *Figure 3*, there is visual evidents of correlation between inflati
 
 After inspecting *Figure 2* and *Figure 3*, there appears to be heteroskedasticity, thus robust standard errors should be used later on in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically these patterns make sense, given the FED's inflation target of 2% and inflation surprise being predominantly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&P500 volatility and inflation surprise vs S&P500 volatility appear to follow a nonlinear relationship, this this should also be tested.
 
-## Regressions
+### Regressions
 
 Having visualised the relationships between inflation metrics and S&P500 returns and volatility, I now extend my analysis by modelling more complex regressions. Note throughout this analysis robust standard errors (HC1) are used in regressions to combat heterogeneity and coefficients are standardised to allow meaningful comparison between regressors.
 
@@ -228,7 +230,7 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
 ```
 **Figure 7.** *Regression results from regressing S&P500 volatility on previous period S&P500 volatility and inflation metrics.*
 
-# Conclusion and Findings
+## Conclusion and Findings
 
 The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise,  and how they influence two metrics of stock market behaviour: S&P500 monthly returns and S&P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding. 
 
