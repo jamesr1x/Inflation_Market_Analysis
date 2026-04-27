@@ -4,9 +4,11 @@ project:
 
 website:
   title: "Inflation & S&P500 Analysis"
-  navbar: false
+  navbar: true
+  sidebar: 
+    style: "floating"
 
 format:
   html:
-    theme: cosmo
+    theme: cosmos
     css: formatting.css
