@@ -3,7 +3,9 @@ body {
   background-color: #fefefb;
   line-height: 1.75;
 }
-
+.quarto-title-block .title {
+  color: white;
+}
 h1, h2, h3, #TOC, .quarto-title-meta, .quarto-title-meta-author {
   font-family: sans-serif;
 }

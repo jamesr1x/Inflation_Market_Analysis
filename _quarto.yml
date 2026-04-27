@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Inflation & S&P500 Analysis"
@@ -8,4 +9,4 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: formatting.css
