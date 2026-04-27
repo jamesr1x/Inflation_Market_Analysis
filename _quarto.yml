@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Report"
+  title: "Search:"
   sidebar: 
     style: "floating"
 
