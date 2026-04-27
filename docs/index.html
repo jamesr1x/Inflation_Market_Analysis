@@ -296,7 +296,7 @@ S_t = Inflation - Inflation Expectations
 </div>
 </div>
 </div>
-<p><strong>Figure 2.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 returns</em></p>
+<p><strong>Figure 2.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 returns.</em></p>
 <p>Looking into <em>Figure 3</em>, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation P values are revealed to be extremely small hinting at a statistically significant relationship, however, r squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&amp;P500 volatility – meaning 21% of the variation in S&amp;P500 volatility can be explained by inflation volatility.</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
@@ -311,8 +311,8 @@ S_t = Inflation - Inflation Expectations
 </div>
 </div>
 </div>
-<p><strong>Figure 3.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 volatility</em></p>
-<p>Somethings to note from inspecting the graphs: There seems to be heteroskedasticity so I should use robust standard errors later in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically this makes sense given the FED’s inflation target of 2% and inflation surprise being mostly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&amp;P500 volatility and inflation surprise vs S&amp;P500 volatility look as if they may follow a nonlinear relationship, so this should be tested.</p>
+<p><strong>Figure 3.</strong> <em>Inflation metrics: Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&amp;P500 volatility.</em></p>
+<p>After inspecting <em>Figure 2</em> and <em>Figure 3</em>, there appears to be heteroskedasticity, thus robust standard errors should be used later on in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically these patterns make sense, given the FED’s inflation target of 2% and inflation surprise being predominantly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&amp;P500 volatility and inflation surprise vs S&amp;P500 volatility appear to follow a nonlinear relationship, this this should also be tested.</p>
 </section>
 <section id="regressions" class="level2">
 <h2 class="anchored" data-anchor-id="regressions">Regressions</h2>
@@ -332,7 +332,7 @@ R_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} 
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_t + \beta_2 \sigma^{\pi}_t + \beta_3 S_t + \beta_4 \pi_t^2 + \beta_5 S_t^2 + u_t
 \]</span></p>
 <p>As seen in <em>Figure 4</em>, this model explains 36.2% of the variation in monthly S&amp;P500 volatility, a significantly stronger result than the models relating inflation metrics to S&amp;P500 returns. All variables were statistically significant except the squared inflation surprise term. The model suggests that inflation volatility and inflation surprise both have a statistically significant positive correlation with S&amp;P500 volatility, where a 1 standard deviation (SD) increase in either metric is associated with a 0.79 SD increase in S&amp;P500 volatility. Conversely inflation has a statistically significant negative relationship with S&amp;P500 volatility, where a 1 SD increase in inflation is associated with a 1.50 SD decrease in S&amp;P500 volatility.</p>
-<div id="978f710d" class="cell" data-execution_count="1">
+<div id="eb2bd7c5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
@@ -368,7 +368,7 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} + u_t
 \]</span></p>
 <p>Replacing lagged inflation variables in the model yeilds substantially different results, as shown in <em>Figure 5</em>. Inflation surprise is no longer statistically significant, the magnitude of the effect of inflation is reduced to -0.79 SD and the effect of inflation volatility increases to 1.00 SD.</p>
-<div id="3fe629c3" class="cell" data-execution_count="2">
+<div id="dea927d2" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
@@ -410,7 +410,7 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi^{std}_t + \beta_2 (\sigma^{\pi}_t)^{std} + \beta_3\left( \pi^{std}_t \cdot (\sigma^{\pi}_t)^{std} \right)+ u_t
 \]</span></p>
 <p>Similar to the previous models, as seen in figure 6 this model shows a strong and statistically significant positive relationship between inflation volatility and S&amp;P500 volatility. The interaction term between inflation and inflation volatility is negative and also statistically significant. However, importantly inflation is now statistically insignificant with a p-value of 0.58.</p>
-<div id="fc380b67" class="cell" data-execution_count="3">
+<div id="ddcfeb95" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Results: Ordinary least squares
 ======================================================================
@@ -446,7 +446,7 @@ Notes:
 \]</span></p>
 <p>The inclusion of past S&amp;P500 volatility in my model produces an interesting result. As seen in figure 7, the model yields a very high R-squared (0.938), yet the relationship of inflation, inflation volatility and inflation surprise to S&amp;P500 volatility all become statistically insignificant (p-values: 0.433, 0.128, 0.408 respectively).</p>
 <p>This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.</p>
-<div id="1cd5251d" class="cell" data-execution_count="4">
+<div id="7bb54034" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
