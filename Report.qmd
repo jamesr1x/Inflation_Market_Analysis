@@ -1,7 +1,10 @@
 ---
 title: "How Do Inflation Metrics Influence S&P500 Returns and Volatility?"
+title-block-banner: "#002173"
+title-block-style: default
 author: "James Rix"
 format: html
+css: formatting.css
 toc: true
 number-sections: true
 ---
