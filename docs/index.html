@@ -46,11 +46,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-6b423f165eeea3787de40cb4f8e821c3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -112,30 +112,23 @@ window.Quarto = {
 <link rel="stylesheet" href="formatting.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Report</span>
-    </a>
-  </div>
-        <div class="quarto-navbar-tools tools-end">
-</div>
-          <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">How Do Inflation Metrics Influence S&amp;P500 Returns and Volatility?</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Report
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
     </div>
   </nav>
 </header>
@@ -175,9 +168,19 @@ window.Quarto = {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Report</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -304,7 +307,7 @@ S_t = \pi - \pi^E
 <p><img src="Outputs/Figures/sp500_r_inflation_v.png" class="img-fluid" alt="S&amp;P500 Returns Against Inflation Volatility"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="Outputs/Figures/sp500_r_inflation_s.png" class="img-fluid" alt="S&amp;P500 Volatility Against Inflation Surprise"></p>
+<p><img src="Outputs/Figures/sp500_r_inflation_s.png" class="img-fluid" alt="S&amp;P500 Returns Against Inflation Surprise"></p>
 </div>
 </div>
 </div>
@@ -319,7 +322,7 @@ S_t = \pi - \pi^E
 <p><img src="Outputs/Figures/sp500_v_inflation_v.png" class="img-fluid" alt="S&amp;P500 Volatility Against Inflation Volatility"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="Outputs/Figures/sp500_v_inflation_s.png" class="img-fluid" alt="S&amp;P500 Returns Against Inflation Surprise"></p>
+<p><img src="Outputs/Figures/sp500_v_inflation_s.png" class="img-fluid" alt="S&amp;P500 Volatility Against Inflation Surprise"></p>
 </div>
 </div>
 </div>
@@ -344,13 +347,13 @@ R_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} 
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_t + \beta_2 \sigma^{\pi}_t + \beta_3 S_t + \beta_4 \pi_t^2 + \beta_5 S_t^2 + u_t
 \]</span></p>
 <p>As seen in <em>Figure 4</em>, this model explains 36.2% of the variation in monthly S&amp;P500 volatility, a significantly stronger result than the models relating inflation metrics to S&amp;P500 returns. All variables were statistically significant except the squared inflation surprise term. The model suggests that inflation volatility and inflation surprise both have a statistically significant positive correlation with S&amp;P500 volatility, where a 1 standard deviation (SD) increase in either metric is associated with a 0.79 SD increase in S&amp;P500 volatility. Conversely inflation has a statistically significant negative relationship with S&amp;P500 volatility, where a 1 SD increase in inflation is associated with a 1.50 SD decrease in S&amp;P500 volatility.</p>
-<div id="d3e7dd57" class="cell" data-execution_count="1">
+<div id="4197735c" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.362    
 Dependent Variable:   SP500_volatility AIC:                1165.9034
-Date:                 2026-04-27 18:39 BIC:                1188.1261
+Date:                 2026-04-27 22:58 BIC:                1188.1261
 No. Observations:     300              Log-Likelihood:     -576.95  
 Df Model:             5                F-statistic:        43.56    
 Df Residuals:         294              Prob (F-statistic): 1.56e-33 
@@ -380,13 +383,13 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} + u_t
 \]</span></p>
 <p>Replacing lagged inflation variables in the model yeilds substantially different results, as shown in <em>Figure 5</em>. Inflation surprise is no longer statistically significant, the magnitude of the effect of inflation is reduced to -0.79 SD and the effect of inflation volatility increases to 1.00 SD.</p>
-<div id="740689c9" class="cell" data-execution_count="2">
+<div id="de13d135" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.938    
 Dependent Variable:   SP500_volatility AIC:                467.7166 
-Date:                 2026-04-27 18:39 BIC:                486.2355 
+Date:                 2026-04-27 22:58 BIC:                486.2355 
 No. Observations:     300              Log-Likelihood:     -228.86  
 Df Model:             4                F-statistic:        911.2    
 Df Residuals:         295              Prob (F-statistic): 1.28e-164
@@ -422,13 +425,13 @@ Notes:
 \sigma^{SP500}_t = \alpha + \beta_1 \pi^{std}_t + \beta_2 (\sigma^{\pi}_t)^{std} + \beta_3\left( \pi^{std}_t \cdot (\sigma^{\pi}_t)^{std} \right)+ u_t
 \]</span></p>
 <p>Similar to the previous models, as seen in figure 6 this model shows a strong and statistically significant positive relationship between inflation volatility and S&amp;P500 volatility. The interaction term between inflation and inflation volatility is negative and also statistically significant. However, importantly inflation is now statistically insignificant with a p-value of 0.58.</p>
-<div id="6f264aa9" class="cell" data-execution_count="3">
+<div id="9d85d635" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>                   Results: Ordinary least squares
 ======================================================================
 Model:                OLS               Adj. R-squared:      0.330    
 Dependent Variable:   SP500_volatility  AIC:                 1178.6915
-Date:                 2026-04-27 18:39  BIC:                 1193.5067
+Date:                 2026-04-27 22:58  BIC:                 1193.5067
 No. Observations:     300               Log-Likelihood:      -585.35  
 Df Model:             3                 F-statistic:         84.91    
 Df Residuals:         296               Prob (F-statistic):  1.16e-39 
@@ -458,13 +461,13 @@ Notes:
 \]</span></p>
 <p>The inclusion of past S&amp;P500 volatility in my model produces an interesting result. As seen in figure 7, the model yields a very high R-squared (0.938), yet the relationship of inflation, inflation volatility and inflation surprise to S&amp;P500 volatility all become statistically insignificant (p-values: 0.433, 0.128, 0.408 respectively).</p>
 <p>This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.</p>
-<div id="0d3ae1ce" class="cell" data-execution_count="4">
+<div id="b0bf9fe5" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Results: Ordinary least squares
 ====================================================================
 Model:                OLS              Adj. R-squared:     0.938    
 Dependent Variable:   SP500_volatility AIC:                467.7166 
-Date:                 2026-04-27 18:39 BIC:                486.2355 
+Date:                 2026-04-27 22:58 BIC:                486.2355 
 No. Observations:     300              Log-Likelihood:     -228.86  
 Df Model:             4                F-statistic:        911.2    
 Df Residuals:         295              Prob (F-statistic): 1.28e-164

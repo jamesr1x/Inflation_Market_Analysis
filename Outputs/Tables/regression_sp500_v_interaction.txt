@@ -2,7 +2,7 @@
 ======================================================================
 Model:                OLS               Adj. R-squared:      0.330    
 Dependent Variable:   SP500_volatility  AIC:                 1178.6915
-Date:                 2026-04-27 18:39  BIC:                 1193.5067
+Date:                 2026-04-27 23:17  BIC:                 1193.5067
 No. Observations:     300               Log-Likelihood:      -585.35  
 Df Model:             3                 F-statistic:         84.91    
 Df Residuals:         296               Prob (F-statistic):  1.16e-39 

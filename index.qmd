@@ -117,7 +117,7 @@ On visual inspection of *Figure 2* there seems to be extremely little correlatio
 
 ![](Outputs/Figures/sp500_r_inflation_v.png){fig-alt="S&P500 Returns Against Inflation Volatility"}
 
-![](Outputs/Figures/sp500_r_inflation_s.png){fig-alt="S&P500 Volatility Against Inflation Surprise"}
+![](Outputs/Figures/sp500_r_inflation_s.png){fig-alt="S&P500 Returns Against Inflation Surprise"}
 :::
 
 **Figure 2.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 returns.*
@@ -130,7 +130,7 @@ Looking into *Figure 3*, there is visual evidents of correlation between inflati
 
 ![](Outputs/Figures/sp500_v_inflation_v.png){fig-alt="S&P500 Volatility Against Inflation Volatility"}
 
-![](Outputs/Figures/sp500_v_inflation_s.png){fig-alt="S&P500 Returns Against Inflation Surprise"}
+![](Outputs/Figures/sp500_v_inflation_s.png){fig-alt="S&P500 Volatility Against Inflation Surprise"}
 :::
 
 **Figure 3.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 volatility.*
