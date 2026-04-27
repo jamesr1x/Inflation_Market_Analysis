@@ -234,7 +234,7 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
 
 The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise,  and how they influence two metrics of stock market behaviour: S&P500 monthly returns and S&P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding. 
 
-The first part of the analysis focused on the relationship between S&P500 returns and inflation metrics in contemporaneous and lagged regression models. The results were statistically insignificant, suggesting that the inflation dynamics mentioned do not have any meaningful impact on current stock market returns, nor do they have any predictive power for future returns. 
+The first part of the analysis focused on the relationship between S&P500 returns and inflation metrics in contemporaneous and lagged regression models. Surprisingly the results were statistically insignificant, suggesting that the inflation dynamics mentioned do not have any meaningful impact on current stock market returns, nor do they have any predictive power for future returns.
 
 In contrast, the relationship between the inflation metrics and S&P500 volatility is considerably stronger. Initial inspection of the scatter plots suggested positive correlations between S&P500 volatility and inflation volatility and inflation surprise and negative correlations S&P500 volatility and inflation. Subsequent regressions confirm these statistically significant relationships. Additionally, inflation surprise has a nonlinear effect on S&P500 volatility, where large surprises disproportionately increase volatility. These results are consistent with economic intuition as uncertainty in inflation, either caused by volatility or surprises, increases uncertainty in the market due to difficulties predicting monetary policy and real interest rates. 
 
@@ -242,7 +242,7 @@ However, after further investigation, the relationship between inflation and S&P
 
 The final model incorporates the well documented phenomena of volatility persistence in financial markets. The model yielded a substantially larger adjusted R-squared, while inflation, inflation volatility and inflation surprise were all deemed insignificant. These results show that past S&P500 volatility is the predominant driver for future S&P500 volatility and the relationships previously identified were likely due to omitted variable bias caused by neglecting volatility persistence. 
 
-Overall, the results suggest although in simpler models inflation volatility and inflation surprise appear to have a positive influence on S&P500 volatility, after accounting for S&P500 volatility in the previous period they provide no significant insight into market volatility.
+Overall, the results suggest although in simpler models inflation volatility and inflation surprise appear to have a positive influence on S&P500 volatility, surprisingly after accounting for S&P500 volatility in the previous period they provide no significant insight into market volatility.
 
  
 
