@@ -47,7 +47,7 @@ In this report a 25 year window will be used, taking data from 2001/01/01 - 2025
 
 The following variables were constructed for the analysis:
 
-**S&P500 Monthly Returns(%):** 
+**S&P500 monthly returns(%):** 
 $$
 \color{gray}{
 R_t = \frac{S\&P500_t - S\&P500_{t-1}}{S\&P500_{t-1}} \times 100
@@ -60,11 +60,12 @@ $$
 \sigma_t = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (R_{t-i} - \bar{R}_t)^2}, \quad n = 12
 }
 $$
-> Note: This can be calculated using the pandas functions: 
+
+- Note: This can be calculated using the pandas function: 
 `R.rolling(12).std()`
 
 
-**Year-on-year Inflation(%):**
+**Year-on-year inflation(%):**
 $$
 \color{gray}{
 \pi_t = \frac{CPI_t - CPI_{t-1}}{CPI_{t-1}} \times 100
@@ -74,18 +75,21 @@ $$
 **Inflation volatility(%):** 
 $$
 \color{gray}{
-\sigma_t = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (R_{t-i} - \bar{R}_t)^2}, \quad n = 12
+\sigma_t = \sqrt{\frac{1}{n-1} \sum_{i=0}^{n-1} (\pi_{t-i} - \bar{\pi}_t)^2}, \quad n = 12
 }
 $$
-> Note: This can be calculated using the pandas functions: 
+
+- Note: This can be calculated using the pandas function: 
 `π.rolling(12).std()`
 
 **Inflation surprise(PP):** 
 $$
 \color{gray}{
-S_t = Inflation - Inflation Expectations
+S_t = \pi - \pi^E
 }
 $$
+
+- Where $\pi^E$ = Inflation Expectations
 
 ## Analysis
 
@@ -242,7 +246,7 @@ However, after further investigation, the relationship between inflation and S&P
 
 The final model incorporates the well documented phenomena of volatility persistence in financial markets. The model yielded a substantially larger adjusted R-squared, while inflation, inflation volatility and inflation surprise were all deemed insignificant. These results show that past S&P500 volatility is the predominant driver for future S&P500 volatility and the relationships previously identified were likely due to omitted variable bias caused by neglecting volatility persistence. 
 
-Overall, the results suggest although in simpler models inflation volatility and inflation surprise appear to have a positive influence on S&P500 volatility, surprisingly after accounting for S&P500 volatility in the previous period they provide no significant insight into market volatility.
+Overall, the results suggest although in simpler models inflation volatility and inflation surprise appear to have a positive influence on S&P500 volatility, surprisingly after accounting for S&P500 volatility in the previous period, they provide no significant insight into market volatility.
 
  
 
