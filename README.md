@@ -8,8 +8,8 @@ The analysis uses 300 monthly observations from 01/01/2001-12/31/2025 and collec
 - **FRED** (MICH)
 - **Yahoo Finance** (^GSPC)
 
-**Link to final report:**
-  
+**To view the rendered final report please click:** [https://github.com/jamesr1x/Inflation_Stock_Returns_Analysis/Report.html](https://jamesr1x.github.io/Inflation_Stock_Returns_Analysis/Report.html)
+
 ## Repository structure:
 ```
 Inflation_Stock_Returns_Analysis/
