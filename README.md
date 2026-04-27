@@ -8,7 +8,7 @@ The analysis uses 300 monthly observations from 01/01/2001-12/31/2025 and collec
 - **FRED** (MICH)
 - **Yahoo Finance** (^GSPC)
 
-**To view the rendered final report please click:** https://jamesr1x.github.io/Inflation_Stock_Returns_Analysis/Report.html
+**To view the rendered final report please follow the link:** https://jamesr1x.github.io/Inflation_Stock_Returns_Analysis/Report.html
 
 ## Repository structure:
 ```
@@ -18,6 +18,10 @@ Inflation_Stock_Returns_Analysis/
 │   ├── Cleaned_data/
 │   └── Raw_data/
 │
+├── Make_scripts/
+│   ├── Make_API_key.py
+│   └── Make_no_API_key.py
+│
 ├── Outputs/
 │   ├── Figures/
 │   └── Tables/
@@ -25,31 +29,42 @@ Inflation_Stock_Returns_Analysis/
 ├── Scripts/
 │   ├── Get_raw_data.ipynb
 │   ├── Clean.ipynb
-│   ├── Analysis.ipynb
-│   └── Make.py
+│   └── Analysis.ipynb
 │
+├── Formatting.css
 ├── FRED_API_key.txt # in .gitignore
 ├── LICENSE
 ├── README.md
+├── Report.html
 └── Report.qmd
 ```
 
 ## Explanation of Directory:
 
-### The project contains 4 scripts:
+### Scripts/:
+
+**The project contains 3 scripts:**
 
 - "Get_raw_data.ipynb" collects raw data from the FED and Yfinance and converts this raw data into 3 csvs which are stored in "Data/Raw_data/".
 - "Clean.ipynb" carries out data processing on the raw data csvs, combinding them into a single csv file called Clean.csv which is stored in "Data/Raw_data/".
 - "Analysis.ipynb" carries out analysis on the cleaned data (Clean.csv). It produces graphs which are stored in "Outputs/Figures/" and regression tables which are stored in "Outputs/Tables/".
-- "Make.py" sets up the folder structure for the directory and runs all 3 scripts in the correct order (Get_raw_data -> Clean -> Analysis)/.
 
 ### FRED_API_key.txt
 
-- This text file is ignored by git. It contains my API key required to fetch data from the FRED. **PLEASE NOTE** If you are planning on cloning this project, create a blank txt file called FRED_API_key.txt and position it in the repository as shown above. Copy and paste your API key inside it. You can retrieve your personal API key from the FRED by creating an account here: https://fredhelp.stlouisfed.org/fred/account/fred-account-features/register/
+This text file is ignored by git. It contains my API key required to fetch data from the FRED. **PLEASE NOTE** If you are planning on cloning this project, create a blank txt file called FRED_API_key.txt and position it in the repository as shown above. Copy and paste your API key inside it. You can retrieve your personal API key from the FRED by creating an account here: https://fredhelp.stlouisfed.org/fred/account/fred-account-features/register/
 
-### Report.qmd
+### Make_scripts/
 
-- This is the final report.
+**The project has 2 Make scripts:**
+
+- "Make_API_key.py"
+- "Make_no_API_key.py"
+
+An explanation for how to use these scripts is provided under [Instructions For Setup](#instructions-for-setup)
+
+### Report.html
+
+This is the final rendered report.
 
 ## Library and Version requirements:
 
@@ -90,16 +105,14 @@ pip install papermill
 ### 3) Run either of the following 2 make scripts:
 
 **Make_no_API_key**: 
-- Runs only the "Analysis.ipynb" script - If pulling raw data is not required this is easier, it does not require the user to create an API key.
+- Runs only "Clean.ipynb" and "Analysis.ipynb" script - If pulling raw data is not required this is easier, it does not require the user to create an API key.
 
 **Make_API_key**: 
 - Runs all 3 scripts, including gathering and cleaning raw data.
-- **NOTE:** Within "Get_raw_data.ipynb" cell 3, a txt file is past in containing my API key, this file is in .gitignore so will NOT automatically download when you clone the repository. As mentioned earlier under "Explanation of Directory", create a txt file called "FRED_API_key.txt" and paste in your API key.
+- **NOTE:** Within "Get_raw_data.ipynb" cell 3, a txt file is past in containing my API key, this file is in .gitignore so will NOT automatically download when you clone the repository. As mentioned earlier under [Explanation of Directory](#explanation-of-directory), create a txt file called "FRED_API_key.txt" and paste in your API key.
 
-
-### 4) Veiw Report
+### 4) View Report
 - Veiw report.qmd (any updates to graphs and regression models will automatically be included).
-
 
 ## Method
 
