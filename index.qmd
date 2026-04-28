@@ -206,7 +206,7 @@ $$
 \sigma^{SP500}_t = \alpha + \beta_1 \pi^{std}_t + \beta_2 (\sigma^{\pi}_t)^{std} + \beta_3\left( \pi^{std}_t \cdot (\sigma^{\pi}_t)^{std} \right)+ u_t
 $$
 
-Similar to the previous models, as seen in figure 6 this model shows a strong and statistically significant positive relationship between inflation volatility and S&P500 volatility. The interaction term between inflation and inflation volatility is negative and also statistically significant. However, importantly inflation is now statistically insignificant with a p-value of 0.58. 
+Similar to the previous models, as seen in Figure 6 this model shows a strong and statistically significant positive relationship between inflation volatility and S&P500 volatility. The interaction term between inflation and inflation volatility is negative and also statistically significant. However, importantly inflation is now statistically insignificant with a p-value of 0.58. 
 
 ```{python}
 #| echo: false
@@ -223,9 +223,7 @@ $$
 \sigma^{SP500}_t = \alpha + \beta_1 (\sigma^{SP500}_{t-1})^{std} + \beta_2 \pi^{std}_t + \beta_3 (\sigma^{\pi}_t)^{std} + \beta_4 S^{std}_t + u_t 
 $$ 
 
-The inclusion of past S&P500 volatility in my model produces an interesting result. As seen in figure 7, the model yields a very high R-squared (0.938), yet the relationship of inflation, inflation volatility and inflation surprise to S&P500 volatility all become statistically insignificant (p-values: 0.433, 0.128, 0.408 respectively). 
-
-This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.  
+The inclusion of past S&P500 volatility in the model produces an interesting result. As seen in Figure 7, the model yields a very high R-squared (0.938), yet the relationship of inflation, inflation volatility and inflation surprise to S&P500 volatility all become statistically insignificant (p-values: 0.433, 0.128, 0.408 respectively). 
 
 ```{python}
 #| echo: false
@@ -233,6 +231,8 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
     print(f.read())
 ```
 **Figure 7.** *Regression results from regressing S&P500 volatility on previous period S&P500 volatility and inflation metrics.*
+
+This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.  
 
 ## Limitations
 
