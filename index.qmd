@@ -232,7 +232,7 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
 ```
 **Figure 7.** *Regression results from regressing S&P500 volatility on previous period S&P500 volatility and inflation metrics.*
 
-This strongly supports the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.  
+The results strongly support the economic phenomena of volatility persistence and volatility clustering. It suggests that past volatility is the strongest predictor of future volatility and once accounted for, the inflation metrics provide almost no explanatory power. This suggests that the significant results for inflation metrics discovered in previous models, were likely due to omitting volatility persistence rather than reflecting a meaningful relationship.  
 
 ## Limitations
 
