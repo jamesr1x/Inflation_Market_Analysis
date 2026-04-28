@@ -33,7 +33,7 @@ This report therefore aims to reveal how three inflation metrics correlate to tw
 - **S&P500 monthly returns** 
 - **S&P500 volatility** (rolling  12-month standard deviation of returns). 
 
-## Data: 
+## Data 
 
 ### collection 
 
@@ -43,7 +43,7 @@ S&P500 data can be retrieved from yahoo finance using the yfinance python librar
 
 In this report a 25 year window will be used, taking data from 2001/01/01 - 2025/12/31, resulting in 300 records. 
 
-### Calculations 
+### Variable Calculations 
 
 The following variables were constructed for the analysis:
 
@@ -93,7 +93,7 @@ $$
 
 ## Analysis
 
-### Time series
+### Variables Over Time
 
 To set the scene for my analysis, *Figure 1A* displays a combined time series for all 5 of my variables of interest sampled monthly, with *Figure 1B* abstracting further to a yearly sample frequency. From first glance the figures portray some noticeable features: Large market volatility from mid 2008 - mid 2010 (the Global Financial Crisis) and 2020-2021 (Covid 19), there appears to be some positive correlation between S&P500 volatility and inflation volatility and inflation and inflation surprise seem to be positively correlated. 
 
@@ -106,7 +106,7 @@ To set the scene for my analysis, *Figure 1A* displays a combined time series fo
 
 While the time series plots provide an initial overview of how inflation metrics and the s&P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.  
 
-### Scatter Plots
+### Visual Correlation Assessment
 
 To begin investigating relationship between inflation metrics and S&P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.  
 
@@ -234,6 +234,13 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
 ```
 **Figure 7.** *Regression results from regressing S&P500 volatility on previous period S&P500 volatility and inflation metrics.*
 
+## Limitations
+
+While this project provides a useful insight into the relationship between inflation metrics and S&P500 behaviour, there are several limitations to consider:
+
+- **Data is sampled monthly**: Using monthly observations may obscure short term market reactions that happen on a daily basis.
+- **Ommitted variable bias**: For feasability, other macroeconomic variables such as interest rates, GDP growth, unemployment etc. have not been included, so coefficients may be biased.
+
 ## Conclusion and Findings
 
 The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise,  and how they influence two metrics of stock market behaviour: S&P500 monthly returns and S&P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding. 
@@ -248,7 +255,10 @@ The final model incorporates the well documented phenomena of volatility persist
 
 Overall, the results suggest although in simpler models inflation volatility and inflation surprise appear to have a positive influence on S&P500 volatility, surprisingly after accounting for S&P500 volatility in the previous period, they provide no significant insight into market volatility.
 
- 
+## References
+
+- *Federal Reserve Bank of St. Louis (FRED). CPIAUCSL and MICH datasets. Retrieved via the FRED API.*
+- *Yahoo Finance. S&P 500 Index (^GSPC) historical price data.*
 
  
 
