@@ -37,7 +37,7 @@ This report therefore aims to reveal how three inflation metrics correlate to tw
 
 ### Collection 
 
-Inflation data is easily obtainable from the FRED using the "fredapi" library in python and a private API key collected by creating an account with the FRED. This report utilises two datasets from the FRED: 1) CPIAUCSL, which contains monthly data on cpi for all urban consumers in the USA (seasonally adjusted) and 2) MICH, which contains monthly data on University of Michigan consumer inflation expectations.  
+Inflation data is easily obtainable from the FRED using the "fredapi" library in python and a private API key collected by creating an account with the FRED. This report utilises two datasets from the FRED: 1) CPIAUCSL, which contains monthly data on CPI for all urban consumers in the USA (seasonally adjusted) and 2) MICH, which contains monthly data on University of Michigan consumer inflation expectations.  
 
 S&P500 data can be retrieved from yahoo finance using the yfinance python library using the S&P500 ticker "^GSPC". Unlike the FRED S&P500 data is recorded daily excluding weekends and bank holidays, thus data had to be resampled to monthly by extracting the first record from each month. Redundant columns were removed so the data frame contained only the date and the corresponding S&P500 closing value. Missing values were filled using the pandas function "interpolate()".  
 
