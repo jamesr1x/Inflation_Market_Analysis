@@ -57,7 +57,7 @@ Generates my report as a website on github (github requires this to be the folde
 
 ### _quarto.yml
 
-Defines how the report is rendered and where the output is stored (in [docs/](#docs).
+Defines how the report is rendered and where the output is stored (in [docs/](#docs)).
 
 ### formatting.css
 
