@@ -82,7 +82,7 @@ This is the my final report in qmd format (github requires this name for the rep
 
 ## Library and Version requirements:
 
-Before running the scripts please install the following libraries:
+As mentioned later, all libraries are automatically installed by the make scrypt except papermill.
 
 - Python: 3.12.0
 - Jupyter: v2025.9.1
@@ -117,6 +117,8 @@ pip install papermill
 ```
 
 ### 3) Run either of the following 2 make scripts:
+
+The make scripts will automatically install all required libraries however, if the code is not functioning as expected library version may need to be manually changed.
 
 **A) Make_no_API_key**: 
 - Runs only the "Clean.ipynb" and "Analysis.ipynb" scripts - If pulling raw data is not required this is easier, it does not require the user to create an API key.
