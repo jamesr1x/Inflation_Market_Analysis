@@ -97,12 +97,31 @@ $$
 
 To set the scene for my analysis, *Figure 1A* displays a combined time series for all 5 of my variables of interest sampled monthly, with *Figure 1B* abstracting further to a yearly sample frequency. From first glance the figures portray some noticeable features: Large market volatility from mid 2008 - mid 2010 (the Global Financial Crisis) and 2020-2021 (Covid 19), there appears to be some positive correlation between S&P500 volatility and inflation volatility and inflation and inflation surprise seem to be positively correlated. 
 
-::: {layout-nrow=2}
-![](Outputs/Figures/combined_timeseries_monthly.png){fig-alt="Combined Time Series"}
-![](Outputs/Figures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
-:::
+<button onclick="showMonthly()">Monthly</button>
+<button onclick="showYearly()">Yearly</button>
 
-**Figure 1.** *Time‑series plots of inflation metrics against S&P500 returns and volatility. Figure A (top) monthly data frequency. Figure B (bottom) yearly data frequency.*
+<div id="monthly">
+  <img src="Outputs/Figures/combined_timeseries_monthly.png" width="100%">
+  <p><em><strong>Figure 1A.</strong> Monthly time series of inflation metrics and S&P500 returns and volatility.</em></p>
+</div>
+
+<div id="yearly" style="display:none;">
+  <img src="Outputs/Figures/combined_timeseries_yearly.png" width="100%">
+  <p><em><strong>Figure 1B.</strong> Yearly time series of inflation metrics and S&P500 returns and volatility.</em></p>
+</div>
+
+<script>
+function showMonthly() {
+  document.getElementById('monthly').style.display = 'block';
+  document.getElementById('yearly').style.display = 'none';
+}
+function showYearly() {
+  document.getElementById('monthly').style.display = 'none';
+  document.getElementById('yearly').style.display = 'block';
+}
+</script>
+
+**Note**: *Click the "Monthly" and "Yearly" buttons to toggle between the respective data frequency.*
 
 While the time series plots provide an initial overview of how inflation metrics and the S&P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.  
 
@@ -120,7 +139,7 @@ On visual inspection of *Figure 2* there seems to be extremely little correlatio
 ![](Outputs/Figures/sp500_r_inflation_s.png){fig-alt="S&P500 Returns Against Inflation Surprise"}
 :::
 
-**Figure 2.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 returns.*
+**Figure 2.** *Inflation metrics:  Inflation - **Figure A** (left), inflation Volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 returns.*
 
 Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation P values are revealed to be extremely small hinting at a statistically significant relationship, however, r squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
 
@@ -133,7 +152,7 @@ Looking into *Figure 3*, there is visual evidents of correlation between inflati
 ![](Outputs/Figures/sp500_v_inflation_s.png){fig-alt="S&P500 Volatility Against Inflation Surprise"}
 :::
 
-**Figure 3.** *Inflation metrics:  Inflation - Figure A (left), inflation Volatility - Figure B (middle) and inflation surprise - Figure C (right), against S&P500 volatility.*
+**Figure 3.** *Inflation metrics:  Inflation - **Figure A** (left), inflation Volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 volatility.*
 
 After inspecting *Figure 2* and *Figure 3*, there appears to be heteroskedasticity, thus robust standard errors should be used later on in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically these patterns make sense, given the FED's inflation target of 2% and inflation surprise being predominantly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&P500 volatility and inflation surprise vs S&P500 volatility appear to follow a nonlinear relationship, this this should also be tested.
 
