@@ -458,45 +458,46 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="09360ec7" class="cell" data-execution_count="261">
+<div id="09360ec7" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series comparing all previously mentioned components of inflation over time on a monthly basis</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_monthly_return, label <span class="op">=</span> <span class="st">"S&amp;P500 Return"</span>) <span class="co">#plots S&amp;P500 return over time</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">False</span>) <span class="co">#Removes grid lines</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">""</span>) <span class="co">#Removes y axis label</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>ax1.set_yticks([]) <span class="co">#removes y axis ticks since multiple y axis are being used</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ax1.legend().set_visible(<span class="va">False</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax1.twinx() <span class="co"># allows me to add another y axis</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.YOY_inflation, ax<span class="op">=</span>ax2, color<span class="op">=</span><span class="st">"orange"</span>, label <span class="op">=</span> <span class="st">"Inflation"</span>) <span class="co">#plots inflation level over time</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">False</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks([])</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>ax2.legend().set_visible(<span class="va">False</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> ax2.twinx()</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_volatility, ax<span class="op">=</span>ax3, color<span class="op">=</span><span class="st">"red"</span>, label <span class="op">=</span> <span class="st">"Inflation Volatility"</span>) <span class="co">#plots inflation volatility over time</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ax3.grid(<span class="va">False</span>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>ax3.set_yticks([])</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>ax3.legend().set_visible(<span class="va">False</span>)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>ax4 <span class="op">=</span> ax3.twinx()</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_surprise, ax<span class="op">=</span>ax4, color<span class="op">=</span><span class="st">"purple"</span>, label <span class="op">=</span> <span class="st">"Inflation Surprise"</span>) <span class="co">#plots inflation suprise over time</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>ax4.grid(<span class="va">False</span>)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>ax4.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>ax4.set_yticks([])</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>ax4.legend().set_visible(<span class="va">False</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>ax5 <span class="op">=</span> ax4.twinx()</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_volatility, ax<span class="op">=</span>ax5, color<span class="op">=</span><span class="st">"green"</span>, label <span class="op">=</span> <span class="st">"S&amp;P500 Volatility"</span>) <span class="co">#plots inflation suprise over time</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>ax5.grid(<span class="va">False</span>)</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>ax5.set_ylabel(<span class="st">""</span>)</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>ax5.set_yticks([])</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>ax5.legend().set_visible(<span class="va">False</span>)</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>plt.gca().xaxis.set_major_locator(mdates.YearLocator(base<span class="op">=</span><span class="dv">1</span>)) <span class="co">#sets x axis ticks to be yearly</span></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Inflation Features vs S&amp;P 500 Return Over Time (Monthly)"</span>, weight<span class="op">=</span><span class="st">"bold"</span>)</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(df.index.<span class="bu">min</span>(), df.index.<span class="bu">max</span>()) <span class="co">#makes it so no white space is after y axis</span></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../Outputs/figures/combined_timeseries_monthly.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax1.twinx() <span class="co"># allows me to add another y axis</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.YOY_inflation, ax<span class="op">=</span>ax2, color<span class="op">=</span><span class="st">"orange"</span>, label <span class="op">=</span> <span class="st">"Inflation"</span>) <span class="co">#plots inflation level over time</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">False</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks([])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> ax2.twinx()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_volatility, ax<span class="op">=</span>ax3, color<span class="op">=</span><span class="st">"red"</span>, label <span class="op">=</span> <span class="st">"Inflation Volatility"</span>) <span class="co">#plots inflation volatility over time</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>ax3.grid(<span class="va">False</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ax3.set_yticks([])</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>ax4 <span class="op">=</span> ax3.twinx()</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.Inflation_surprise, ax<span class="op">=</span>ax4, color<span class="op">=</span><span class="st">"purple"</span>, label <span class="op">=</span> <span class="st">"Inflation Surprise"</span>) <span class="co">#plots inflation suprise over time</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>ax4.grid(<span class="va">False</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>ax4.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>ax4.set_yticks([])</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>ax5 <span class="op">=</span> ax4.twinx()</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>df.index, y<span class="op">=</span>df.SP500_volatility, ax<span class="op">=</span>ax5, color<span class="op">=</span><span class="st">"green"</span>, label <span class="op">=</span> <span class="st">"S&amp;P500 Volatility"</span>) <span class="co">#plots inflation suprise over time</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>ax5.grid(<span class="va">False</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>ax5.set_ylabel(<span class="st">""</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>ax5.set_yticks([])</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.gca().xaxis.set_major_locator(mdates.YearLocator(base<span class="op">=</span><span class="dv">1</span>)) <span class="co">#sets x axis ticks to be yearly</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Inflation Features vs S&amp;P 500 Return Over Time (Monthly)"</span>, weight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="co">#positions the legends in specific position:</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>ax1.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>ax5.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.4</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>ax2.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.542</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>ax3.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>ax4.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.95</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(df.index.<span class="bu">min</span>(), df.index.<span class="bu">max</span>()) <span class="co">#makes it so no white space is after y axis</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../Outputs/figures/combined_timeseries_monthly.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -505,7 +506,7 @@ numpy: 2.4.4</code></pre>
 </div>
 </div>
 </div>
-<div id="38113834" class="cell" data-execution_count="262">
+<div id="38113834" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Time series comparing all previously mentioned components of inflation over time on a yearly basis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df_yearly <span class="op">=</span> df.resample(<span class="st">'YE'</span>).mean() <span class="co">#Decided to resample data to yearly data points since monthly values made the graph very cluttered</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">4</span>))</span>
@@ -538,11 +539,11 @@ numpy: 2.4.4</code></pre>
 <span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Time"</span>)</span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Inflation Features vs S&amp;P 500 Return Over Time (yearly)"</span>, weight<span class="op">=</span><span class="st">"bold"</span>)</span>
 <span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co">#positions the legends in specific position:</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>ax1.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 1st</span></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ax5.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.4</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 2nd</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ax2.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.542</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 3rd</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>ax3.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 4th</span></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>ax4.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.95</span>, <span class="op">-</span><span class="fl">0.25</span>))   <span class="co"># 5th</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>ax1.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ax5.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.4</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ax2.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.542</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>ax3.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.75</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>ax4.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">0.95</span>, <span class="op">-</span><span class="fl">0.25</span>))</span>
 <span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(df_yearly.index.<span class="bu">min</span>(), df_yearly.index.<span class="bu">max</span>())</span>
 <span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../Outputs/figures/combined_timeseries_yearly.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
