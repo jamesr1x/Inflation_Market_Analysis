@@ -14,7 +14,7 @@ toc: true
 
 ## Introduction
 
-The stock market plays an essential role in the global economy, aggregating vast amounts of economic data and combining with consumer sentiment to value over 58000 publicly listed companies. The S&P 500 is often considered the best gauge for large cap American stocks, making up around 80% of the US's market cap. Due to its prevalence it is closely monitored by policy makers to evaluate economic health and is used by institutions and individual investors as a bench mark for performance. 
+The stock market plays an essential role in the global economy, aggregating vast amounts of economic data and combining with consumer sentiment to value over 58000 publicly listed companies. The S&P500 is often considered the best gauge for large cap American stocks, making up around 80% of the US's market cap. Due to its prevalence it is closely monitored by policy makers to evaluate economic health and is used by institutions and individual investors as a bench mark for performance. 
 
 Among macroeconomic indicators such as GDP growth and unemployment rate, inflation plays a significant role in influencing interest rates, firm profitability and investor expectations. Although inflation is known to have a key role in the valuation of equities in the market, the individual elements of inflation and their exact influence on the market remains largely ambiguous. 
 
@@ -41,7 +41,7 @@ Inflation data is easily obtainable from the FRED using the "fredapi" library in
 
 S&P500 data can be retrieved from yahoo finance using the yfinance python library using the S&P500 ticker "^GSPC". Unlike the FRED S&P500 data is recorded daily excluding weekends and bank holidays, thus data had to be resampled to monthly by extracting the first record from each month. Redundant columns were removed so the data frame contained only the date and the corresponding S&P500 closing value. Missing values were filled using the pandas function "interpolate()".  
 
-In this report a 25 year window will be used, taking data from 2001/01/01 - 2025/12/31, resulting in 300 records. 
+In this report a 25 year window will be used, taking data from 2001/01/01 - 2025/12/31, totalling 300 records. 
 
 ### Variable Calculations 
 
@@ -102,9 +102,9 @@ To set the scene for my analysis, *Figure 1A* displays a combined time series fo
 ![](Outputs/Figures/combined_timeseries_yearly.png){fig-alt="Combined Time Series"}
 :::
 
-**Figure 1.** *Time‑series plots of inflation metrics against S&P500 returns and volatility. Figure A (top) Monthly data frequency. Figure B (bottom) yearly data frequency.*
+**Figure 1.** *Time‑series plots of inflation metrics against S&P500 returns and volatility. Figure A (top) monthly data frequency. Figure B (bottom) yearly data frequency.*
 
-While the time series plots provide an initial overview of how inflation metrics and the s&P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.  
+While the time series plots provide an initial overview of how inflation metrics and the S&P500 move over time, time series graphs are mostly useful for visualising the influence of major events such as the global financial crisis and Covid 19 and portraying long run trends. The value the time series provide in comparing relationships between variables is diminutive.  
 
 ### Visual Correlation Assessment
 
@@ -190,7 +190,7 @@ with open("Outputs/Tables/regression_sp500_v_volatility_persistence.txt") as f:
 
 Economically the results for inflation volatility and inflation surprise make sense. Having high inflation volatility indicates high uncertainty regarding inflation. During these times, households and firms struggle to predict monetary policy response and real interest rates, leading to fluctuations in investment habits and asset pricing and therefore increased market volatility. Similarly, for inflation surprise, when households or firms wrongly predict inflation, they re-evaluate their expectations for future monetary policy and asset pricing, leading to fluctuations in the stock market, although unlike inflation volatility this effect is short-lived and does not contribute to market volatility in the following month. Additionally the positive and statistically significant squared term for inflation surprise indicates a nonlinear relationship, where large inflation surprises disproportionately increase volatility in the market. 
 
-The negative coefficient for inflation suggests that in times of high inflation, where inflation volatility and inflation surprise are accounted for there is a negative relationship between stable and predictable inflation and S&P500 volatility. Additionally the VIF value between inflation and inflation surprise is 4.8 indicating moderate collinearity, thus making coefficient estimates less reliable.
+The negative coefficient for inflation suggests that in times of high inflation, where inflation volatility and inflation surprise are accounted for, there is a negative relationship between stable and predictable inflation and S&P500 volatility. Additionally the VIF value between inflation and inflation surprise is 4.8 indicating moderate collinearity, thus making coefficient estimates less reliable.
 
 To address multicollinearity between inflation and inflation surprise the following model will be run: 
 
