@@ -105,11 +105,11 @@ As mentioned later, all libraries are automatically installed by the make scrypt
 
 - Create a folder on your device you wish to contain the repository.
 - Open Git Bash and type the following commands:
-```
-CD "FOLDER_PATH" #where FOLDER_PATH is the path to your folder
 
-git clone "https://github.com/jamesr1x/Inflation_Stock_Returns_Analysis.git"
-```
+```CD "FOLDER_PATH"``` #Where FOLDER_PATH is the path to your folder
+
+```git clone "https://github.com/jamesr1x/Inflation_Stock_Returns_Analysis.git"```
+
 ### 2) Install papermill 
 - In the terminal type:
 ```
