@@ -118,7 +118,7 @@ pip install papermill
 
 ### 3) Run either of the following 2 make scripts:
 
-The make scripts will automatically install all required libraries however, if the code is not functioning as expected library version may need to be manually changed.
+The make scripts will automatically install all required libraries, however, if the code is not functioning as expected library version may need to be manually changed.
 
 **A) Make_no_API_key**: 
 - Runs only the "Clean.ipynb" and "Analysis.ipynb" scripts - If pulling raw data is not required this is easier, it does not require the user to create an API key.
