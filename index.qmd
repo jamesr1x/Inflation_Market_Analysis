@@ -127,9 +127,9 @@ While the time series plots provide an initial overview of how inflation metrics
 
 ### Visual Correlation Assessment
 
-To begin investigating relationship between inflation metrics and S&P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.  
+To begin investigating the relationship between inflation metrics and S&P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.  
 
-On visual inspection of *Figure 2* there seems to be extremely little correlation between each of the inflation metrics plotted against S&P500 returns. Calculated r squared values are extremely small hinting that the relationship between inflation metrics and S&P500 returns is extremely week and running a simple linear regression yields extremely high P values, meaning any observable correlation is statistically insignificant. 
+On visual inspection of *Figure 2* there seems to be extremely little correlation between each of the inflation metrics plotted against S&P500 returns. Calculated R squared values are extremely small hinting that the relationship between inflation metrics and S&P500 returns is extremely week and running a simple linear regression yields extremely high p-values, meaning any observable correlation is statistically insignificant. 
 
 ::: {layout-ncol=3}
 ![](Outputs/Figures/sp500_r_inflation.png){fig-alt="S&P500 Returns Against Inflation"}
@@ -141,7 +141,7 @@ On visual inspection of *Figure 2* there seems to be extremely little correlatio
 
 **Figure 2.** *Inflation metrics:  Inflation - **Figure A** (left), inflation Volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 returns.*
 
-Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation P values are revealed to be extremely small hinting at a statistically significant relationship, however, r squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
+Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation p-values are revealed to be extremely small hinting at a statistically significant relationship, however, R squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
 
 ::: {layout-ncol=3}
 
