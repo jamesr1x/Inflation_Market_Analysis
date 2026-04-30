@@ -129,7 +129,7 @@ While the time series plots provide an initial overview of how inflation metrics
 
 To begin investigating the relationship between inflation metrics and S&P500 returns and volatility, scatter plots can be used to provide a visual representation and an intuitive preview of what later regressions may uncover. To aid in the visual interpretation a line of best fit has been plotted on each graph. A tightly bound trend around the line of best fit hints at a strong positive or negative relationship, conversely a cloud of points with no clearly visible pattern may point at a weak or absent correlation.  
 
-On visual inspection of *Figure 2* there seems to be extremely little correlation between each of the inflation metrics plotted against S&P500 returns. Calculated R squared values are extremely small hinting that the relationship between inflation metrics and S&P500 returns is extremely week and running a simple linear regression yields extremely high p-values, meaning any observable correlation is statistically insignificant. 
+On visual inspection of *Figure 2*, there seems to be extremely little correlation between each inflation metric and S&P500 returns. R squared values are extremely small hinting that the relationship between inflation metrics and S&P500 returns is extremely week. Running a simple linear regression yields extremely high p-values, meaning any observable correlation is statistically insignificant.
 
 ::: {layout-ncol=3}
 ![](Outputs/Figures/sp500_r_inflation.png){fig-alt="S&P500 Returns Against Inflation"}
@@ -141,7 +141,7 @@ On visual inspection of *Figure 2* there seems to be extremely little correlatio
 
 **Figure 2.** *Inflation metrics:  Inflation - **Figure A** (left), inflation Volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 returns.*
 
-Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation p-values are revealed to be extremely small hinting at a statistically significant relationship, however, R squared values also remain relatively small with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
+Looking into *Figure 3*, there is visual evidents of correlation between inflation metrics and inflation volatility albeit still relatively weak. On calculation p-values are revealed to be extremely small hinting at a statistically significant relationship, however, R squared values also remain relatively small, with the highest of them being 0.21 for inflation volatility against S&P500 volatility – meaning 21% of the variation in S&P500 volatility can be explained by inflation volatility. 
 
 ::: {layout-ncol=3}
 
@@ -152,15 +152,15 @@ Looking into *Figure 3*, there is visual evidents of correlation between inflati
 ![](Outputs/Figures/sp500_v_inflation_s.png){fig-alt="S&P500 Volatility Against Inflation Surprise"}
 :::
 
-**Figure 3.** *Inflation metrics:  Inflation - **Figure A** (left), inflation Volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 volatility.*
+**Figure 3.** *Inflation metrics:  Inflation - **Figure A** (left), inflation volatility - **Figure B** (middle) and inflation surprise - **Figure C** (right), against S&P500 volatility.*
 
-After inspecting *Figure 2* and *Figure 3*, there appears to be heteroskedasticity, thus robust standard errors should be used later on in my regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1PP and inflation surprise of -2-1PP. Economically these patterns make sense, given the FED's inflation target of 2% and inflation surprise being predominantly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&P500 volatility and inflation surprise vs S&P500 volatility appear to follow a nonlinear relationship, this this should also be tested.
+After inspecting *Figure 2* and *Figure 3*, there appears to be heteroskedasticity, thus robust standard errors should be used in later regressions. Additionally, there is visible clustering around the inflation level of 2-3%, inflation volatility from 0-1% and inflation surprise of -2-1PP. Economically these patterns make sense, given the FED's inflation target of 2% and inflation surprise being predominantly negative due to a multitude of economic factors. Furthermore, the plots of inflation vs S&P500 volatility and inflation surprise vs S&P500 volatility appear to follow a nonlinear relationship, this this should also be tested.
 
 ### Regressions
 
 Having visualised the relationships between inflation metrics and S&P500 returns and volatility, I now extend my analysis by modelling more complex regressions. Note throughout this analysis robust standard errors (HC1) are used in regressions to combat heterogeneity and coefficients are standardised to allow meaningful comparison between regressors.
 
-To start , S&P500 returns were regressed on the three inflation metrics:
+To start, S&P500 returns were regressed on the three inflation metrics:
 
 $$
 R_t = \alpha + \beta_1 \pi_t + \beta_2 \sigma_t^{\pi} + \beta_3 S_t + u_t
@@ -175,9 +175,9 @@ $$
 R_t = \alpha + \beta_1 \pi_{t-1} + \beta_2 \sigma^{\pi}_{t-1} + \beta_3 S_{t-1} + u_t
 $$
 
-The results remain largely unchanged, with all metrics remaining statistically insignificant and adj. R-squared only increasing to 0.011, revealing past inflation conditions do not predict future S&P500 returns.
+The results remain largely unchanged, with all metrics remaining statistically insignificant and adjusted R-squared only increasing to 0.011, revealing past inflation conditions do not predict future S&P500 returns.
 
-We now turn to investigate the relationship between the inflation metrics and S&P500 volatility. As noted earlier, visual inspection of *Figure 3A* and *Figure 3B* suggest a non-linear relationships of inflation and inflation surprise with S&P500 volatility. To account for this squared terms for each of these respective metrics have been included in the model: 
+We now turn to investigate the relationship between the inflation metrics and S&P500 volatility. As noted earlier, visual inspection of *Figure 3A* and *Figure 3B* suggests a non-linear relationship of inflation and inflation surprise with S&P500 volatility. To account for this squared terms for each of these respective metrics have been included in the model: 
 
 $$
 \sigma^{SP500}_t = \alpha + \beta_1 \pi_t + \beta_2 \sigma^{\pi}_t + \beta_3 S_t + \beta_4 \pi_t^2 + \beta_5 S_t^2 + u_t
@@ -262,7 +262,7 @@ While this project provides a useful insight into the relationship between infla
 
 ## Conclusion and Findings
 
-The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise,  and how they influence two metrics of stock market behaviour: S&P500 monthly returns and S&P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding. 
+The intention for this report was to investigate the relationship between 3 inflation metrics: year-on-year inflation, inflation volatility and inflation surprise, and how they influence two metrics of stock market behaviour: S&P500 monthly returns and S&P500 volatility. The analysis utilised 300 monthly data points over a 25 year time frame and has produced a set of results that broadly align with current economic understanding. 
 
 The first part of the analysis focused on the relationship between S&P500 returns and inflation metrics in contemporaneous and lagged regression models. Surprisingly the results were statistically insignificant, suggesting that the inflation dynamics mentioned do not have any meaningful impact on current stock market returns, nor do they have any predictive power for future returns.
 
